@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ConverterComponent } from './';
-import { CurrencyService } from './services';
+import { ConverterService, CurrencyService } from './services';
 
 @NgModule({
   declarations: [ConverterComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule],
   exports: [ConverterComponent],
-  providers: [CurrencyService],
+  providers: [CurrencyService, ConverterService],
 })
 export class ConverterModule {}
