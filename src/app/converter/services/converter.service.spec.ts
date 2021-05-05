@@ -9,8 +9,4 @@ describe('ConverterService', () => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(ConverterService);
   });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
 });
