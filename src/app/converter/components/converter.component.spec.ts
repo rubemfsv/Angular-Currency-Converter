@@ -1,7 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CurrencyService, ConverterService } from '../services';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-import { ConverterComponent } from './converter.component';
+import { CurrencyService, ConverterService } from '../services';
+import { NumberDirective } from '../directives';
+import { DateBrPipe } from '../pipes';
+import { ModalComponent } from '../utils';
+import { ConverterComponent } from './';
 
 describe('ConverterComponent', () => {
   let component: ConverterComponent;
@@ -9,8 +14,14 @@ describe('ConverterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ConverterComponent],
+      declarations: [
+        ConverterComponent,
+        NumberDirective,
+        DateBrPipe,
+        ModalComponent,
+      ],
       providers: [CurrencyService, ConverterService],
+      imports: [FormsModule, HttpClientModule],
     }).compileComponents();
   });
 
@@ -18,5 +29,9 @@ describe('ConverterComponent', () => {
     fixture = TestBed.createComponent(ConverterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });

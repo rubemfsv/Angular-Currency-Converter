@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DateBrPipe } from '../pipes';
+import { ConverterService } from '../services';
 
 import { ModalComponent } from './modal.component';
 
@@ -8,7 +11,9 @@ describe('ModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ModalComponent],
+      declarations: [ModalComponent, DateBrPipe],
+      imports: [HttpClientModule],
+      providers: [ConverterService],
     }).compileComponents();
   });
 
@@ -16,5 +21,9 @@ describe('ModalComponent', () => {
     fixture = TestBed.createComponent(ModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
