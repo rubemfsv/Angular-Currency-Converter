@@ -42,7 +42,16 @@
         class="btn btn-success"
         (click)="converter()"
         [disabled]="!convertionForm.form.valid"
+        data-target="#modalQuotation"
+        data-toggle="modal"
       />
     </form>
   </div>
+  <app-modal
+    [id]="'modalQuotation'"
+    [convertionResponse]="convertionResponse"
+    [convertion]="convertion"
+    (onConfirm)="init()"
+  >
+  </app-modal>
 </div>
